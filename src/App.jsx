@@ -135,9 +135,14 @@ function Navbar(){
 function Sidebar(props){
     const [toggle, toggleState] = useState(false);
     const [toggle2, toggleState2] = useState(false);
-  return(
+    const [toggle3, toggleState3] = useState(false);
+    const [toggle4, toggleState4] = useState(false);
+    const [toggle5, toggleState5] = useState(false);
+    const [toggle6, toggleState6] = useState(false);
+    
+    return(
     <div style={{overflowY: 'scroll', height: '100vh', position:'sticky',top:'50px' }}>
-    <div className="card">
+    <div className="card rounded-0">
       <div className="card-body">
         <button className="btn" onMouseOver={() => toggleState(true)} onMouseOut={() => toggleState(false)} style={{backgroundColor : toggle ? '#f6f6f6' : 'white', width: '100%'}}>
           <Menu icon="bi bi-house-door" label="Beranda" onClick={() => {}}></Menu>
@@ -147,14 +152,14 @@ function Sidebar(props){
         </button>
       </div>
     </div>
-    <div className="card">
+    <div className="card rounded-0">
       <div className="card-body">
       <div className="row">
         <div className="col">
-          <button className="btn" style={{width: '100%'}}>
+          <button className="btn" onMouseOver={() => toggleState3(true)} onMouseOut={() => toggleState3(false)} style={{backgroundColor : toggle3 ? '#f6f6f6' : 'white', width: '100%'}}>
             <Menu icon="bi bi-mortarboard" label="Terdaftar" onClick={() => {}}></Menu>
           </button>
-          <button className="btn" style={{width: '100%'}}>
+          <button className="btn" onMouseOver={() => toggleState4(true)} onMouseOut={() => toggleState4(false)} style={{backgroundColor : toggle4 ? '#f6f6f6' : 'white', width: '100%'}}>
             <Menu icon="bi bi-card-checklist" label="Daftar tugas" onClick={() => {}}></Menu>
           </button>
         </div>
@@ -162,12 +167,12 @@ function Sidebar(props){
         <Sidemapel data={props.data}/>
       </div>
     </div>
-    <div className="card">
+    <div className="card rounded-0">
       <div className="card-body">
-        <button className="btn" style={{width: '100%'}}>
+        <button className="btn" onMouseOver={() => toggleState5(true)} onMouseOut={() => toggleState5(false)} style={{backgroundColor : toggle5 ? '#f6f6f6' : 'white', width: '100%'}}>
           <Menu icon="bi bi-save" label="Kelas yang diarsipkan" onClick={() => {}}></Menu>
         </button>
-        <button className="btn" style={{width: '100%'}}>
+        <button className="btn" onMouseOver={() => toggleState6(true)} onMouseOut={() => toggleState6(false)} style={{backgroundColor : toggle6 ? '#f6f6f6' : 'white', width: '100%'}}>
           <Menu icon="bi bi-gear" label="Setelan" onClick={() => {}}></Menu>
         </button>
       </div>
