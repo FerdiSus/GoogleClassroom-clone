@@ -7,7 +7,7 @@ import Menu from "../components/menu";
 import { data } from "autoprefixer";
 
 
-function DaftarTgs() {
+function SelesaiTgs() {
     const [data,setdata] = useState([
         {
           title  : "XII RPL BAHASA INDONESIA",
@@ -63,11 +63,11 @@ function DaftarTgs() {
         <div className="col-3" style={{marginTop: 52}}>
             <Sidebar data = {data}/>
         </div>
-        <div className="col sticky-top" style={{marginTop: 60}}>
+        <div className="col" style={{marginTop: 60}}>
           <MiniHead data={data}/>
         </div>
         </div>
-        <div className="d-flex">
+        <div className="d-flex fixed-bottom">
           <Nanya/>
         </div>
         </>
@@ -107,7 +107,7 @@ function MiniHead(props)
       <div className="col-1">
       </div>
       <div className="col-9">
-        <Daftar data={props.data} />
+        <TidakDaftar data={props.data} />
       </div>  
       <div className="col-1">
         
@@ -117,8 +117,9 @@ function MiniHead(props)
   )
 }
 
-function Daftar(props)
+function TidakDaftar(props)
 {
+
   return(
     <>
   <div className="row">
@@ -144,48 +145,27 @@ function Daftar(props)
     </div>
   </div>
   <div className="row">
-      <div className="col" style={{marginTop: 35, marginBottom: 20}}>
-         <span style={{fontSize: 20}}>Tak ada batas Waktu</span>
+     <div className="row" style={{marginTop: 35, marginBottom: 5}}>
+         <span style={{fontSize: 20}}>Tak ada batas waktu</span>
+      </div>    
+      <div className="row" style={{marginTop: 10, marginBottom: 5}}>
+         <span style={{fontSize: 20}}>Selesai lebih awal</span>
       </div>
-      {
-        props.data?.map((item) =>{
-          return(
-
-      <div className="border-bottom data-card" style={{height: 100}}>
-        <div className="row">
-          <div className="col d-flex" style={{marginTop: 10}}>
-              <div className="d-flex align-items-center rounded-circle justify-content-center" style={{ width: '38px', height:'38px',overflow: 'hidden', backgroundColor:item.color ,marginTop: 5}}>
-                <i className="bi bi-file-earmark-text d-flex align-items-center justify-content" style={{color:'white',width: '100%',height: '100%',marginLeft: 7, fontSize: 23}}></i>
-              </div>
-              <div className="col" style={{marginLeft: 15}}>
-               <div className="row" >
-                 <span>{item.tugas}</span>
-               </div>
-               <div className="row">
-                 <span style={{fontWeight: 'lighter', fontSize: 13}}>{item.title}</span>
-               </div>
-               <div className="row" style={{marginTop: 10, paddingBottom:5}}>
-                 <span style={{fontWeight: 'lighter' , fontSize: 13}}>{item.date}</span>
-               </div>
-              </div>
-          </div>
-        </div>
-      </div>
-          )
-        })
-      }
-     <div className="row" style={{marginTop: 20, marginBottom: 5}}>
+      <div className="row" style={{marginTop: 10, marginBottom: 5}}>
          <span style={{fontSize: 20}}>Minggu ini</span>
       </div>
       <div className="row" style={{marginTop: 10, marginBottom: 5}}>
-         <span style={{fontSize: 20}}>Minggu Berikutnya</span>
+         <span style={{fontSize: 20}}>Minggu lalu</span>
       </div>
       <div className="row" style={{marginTop: 10, marginBottom: 5}}>
-         <span style={{fontSize: 20}}>Nanti</span>
+         <span style={{fontSize: 20}}>Lebih awal</span>
       </div>
   </div>
     </>
   )
 }
 
-export default DaftarTgs
+export default SelesaiTgs
+
+
+

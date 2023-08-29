@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { Component } from "react";
 import Nanya from "../components/footer";
 import Navbar from "../components/header";
 import Sidebar from "../components/sidebar";
-import CalendarDays from "./date/kalender-days";
-import './date/kalender.css'
 
-function Kalender() {
+function Coba() {
     const [data,setdata] = useState([
         {
           title  : "XII RPL BAHASA INDONESIA",
@@ -68,11 +65,9 @@ function Kalender() {
         <div className="col-3" style={{marginTop: 52}}>
             <Sidebar data = {data}/>
         </div>
-        <div className="col" style={{marginTop: 60}}>
+        <div className="col-9" style={{marginTop: 60}}>
           <Kopi data ={data}/>
-        </div>
-        <div className="col-3">
-            <div className="d-flex fixed-bottom ">
+          <div className="d-flex fixed-bottom ">
                 <Nanya/>
             </div>
         </div>
@@ -84,9 +79,9 @@ function Kalender() {
 function Kopi (props)
 {
   return(
-    <>
-    <div className="dropdown">
-    <button class="btn border d-flex justify-content-between" type="button" data-bs-toggle="dropdown" style={{width: '35%',padding: 10, position: 'relative', top: 24}} >
+    <div className="row">
+    <div className="dropdown d-flex">
+    <button class="btn border d-flex justify-content-between" type="button" data-bs-toggle="dropdown" style={{width: '35%', position: 'relative', top: 24}} >
       Semua kelas
       <i className="bi bi-caret-down-fill"></i>
     </button>
@@ -102,70 +97,21 @@ function Kopi (props)
         )
       }
     </ul>
+    <div className="col d-flex"style={{ marginTop: 24, marginLeft: 20}}>
+     <div className="d-flex align-items-center">
+        <button className="btn" style={{width: 40}}>
+            <i className='bi bi-arrow-left'></i>
+        </button>
+        <span style={{marginLeft: 5, marginRight: 5}}> Agu 27-sep 2, 2023 </span>
+        <button className="btn" style={{width: 40}}>
+            <i className='bi bi-arrow-right'></i>
+        </button>
+     </div>
+     </div>
     </div>
-    <div>
-      <Calendar/>
     </div>
-    </>
   )
 }
 
-class Calendar extends Component {
-    constructor() {
-      super();
-  
-      this.weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      this.months = ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'];
-  
-      this.state = {
-        currentDay: new Date()
-      }
-    }
-  
-    changeCurrentDay = (day) => {
-      this.setState({ currentDay: new Date(day.year, day.month, day.number) });
-    }
-  
-    nextDay = () => {
-      this.setState({ currentDay: new Date(this.state.currentDay.setDate(this.state.currentDay.getDate() + 1)) });
-    }
-  
-    previousDay = () => {
-      this.setState({ currentDay: new Date(this.state.currentDay.setDate(this.state.currentDay.getDate() - 1)) });
-    }
-  
-    render(props) {
-      return (
-        <div className="calendar">
-          <div className="calendar-header">
-            <div className="tools">
-              <button onClick={this.previousDay}>
-                <span className="material-icons">
-                  <i className='bi bi-arrow-left'></i>
-                  </span>
-              </button>
-              <span>{this.months[this.state.currentDay.getMonth()].substring(0, 3)} {this.state.currentDay.getDate()}</span>
-              <button onClick={this.nextDay}>
-                <span className="material-icons">
-                <i className='bi bi-arrow-right'></i>
-                  </span>
-              </button>
-            </div>
-          </div>
-          <div className="calendar-body">
-            <div className="table-header">
-              {
-                this.weekdays.map((weekday) => {
-                  return <div className="weekday"><p>{weekday}</p></div>
-                })
-              }
-            </div>
-            <CalendarDays day={this.state.currentDay} changeCurrentDay={this.changeCurrentDay} />
-          </div>
-        </div>
-      )
-    }
-  }
 
-export default Kalender
+export default Coba

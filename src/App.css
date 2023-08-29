@@ -1,0 +1,49 @@
+.data-card:hover 
+{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+.btn
+{
+    width: 100%;
+}
+
+.btn:hover
+{
+    text-decoration: none;
+    color: black;
+    background-color: #f6f6f6;
+    width: 100%;
+}
+
+.menu
+{   
+    width: 100%;
+    color: black;
+    text-decoration: none; 
+}
+
+.side:hover
+{
+    background-color: #f6f6f6;
+    width: 100%;
+}
+
+.board
+{
+    border-radius: 7px;
+    
+}
+
+.but-map:hover
+{
+    background-color:#b4cef1;
+}
+
+  .map-um{
+    font-weight: 200;
+  }
+  .map-um:hover{
+    color: blue;
+  }

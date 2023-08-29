@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Menu from "./menu";
+import { Link } from "react-router-dom";
 
 
 function Sidebar(props){
@@ -53,24 +54,24 @@ function Sidebar(props){
       onclick : () => {}
     },
   ])
-  const [toggle, toggleState] = useState(false);
-  const [toggle2, toggleState2] = useState(false);
-  const [toggle3, toggleState3] = useState(false);
-  const [toggle4, toggleState4] = useState(false);
-  const [toggle5, toggleState5] = useState(false);
-  const [toggle6, toggleState6] = useState(false);
+  // const [toggle, toggleState] = useState(false);
+  // const [toggle2, toggleState2] = useState(false);
+  // const [toggle3, toggleState3] = useState(false);
+  // const [toggle4, toggleState4] = useState(false);
+  // const [toggle5, toggleState5] = useState(false);
+  // const [toggle6, toggleState6] = useState(false);
   
   return(
   <div style={{overflowY: 'scroll', height: '100vh', position:'sticky',top:'50px' }}>
   <div className="card rounded-0">
     <div className="card-body">
-      <a href="/">
-      <button className="btn" onMouseOver={() => toggleState(true)} onMouseOut={() => toggleState(false)} style={{backgroundColor : toggle ? '#f6f6f6' : 'white', width: '100%'}}>
+      <a href="/" className="menu" >
+      <button className="btn">
         <Menu icon="bi bi-house-door" label="Beranda" onClick={() => {}}></Menu>
       </button>
       </a>
-      <a href="/kalender">
-      <button className="btn" onMouseOver={() => toggleState2(true)} onMouseOut={() => toggleState2(false)} style={{backgroundColor : toggle2 ? '#f6f6f6' : 'white', width: '100%'}}>
+      <a href="/kalender" className="menu">
+      <button className="btn" >
           <Menu icon="bi bi-calendar4" label="Kalender" onClick={() => {}}></Menu>
       </button>
       </a>
@@ -80,11 +81,11 @@ function Sidebar(props){
     <div className="card-body">
     <div className="row">
       <div className="col">
-        <button className="btn" onMouseOver={() => toggleState3(true)} onMouseOut={() => toggleState3(false)} style={{backgroundColor : toggle3 ? '#f6f6f6' : 'white', width: '100%'}}>
+        <button className="btn" >
           <Menu icon="bi bi-mortarboard" label="Terdaftar" onClick={() => {}}></Menu>
         </button>
-        <a href="/daftar-tugas">
-        <button className="btn" onMouseOver={() => toggleState4(true)} onMouseOut={() => toggleState4(false)} style={{backgroundColor : toggle4 ? '#f6f6f6' : 'white', width: '100%'}}>
+        <a href="/daftar-tugas" className="menu">
+        <button className="btn" >
           <Menu icon="bi bi-card-checklist" label="Daftar tugas" onClick={() => {}}></Menu>
         </button>
         </a>
@@ -95,10 +96,10 @@ function Sidebar(props){
   </div>
   <div className="card rounded-0">
     <div className="card-body">
-      <button className="btn" onMouseOver={() => toggleState5(true)} onMouseOut={() => toggleState5(false)} style={{backgroundColor : toggle5 ? '#f6f6f6' : 'white', width: '100%'}}>
+      <button className="btn" >
         <Menu icon="bi bi-save" label="Kelas yang diarsipkan" onClick={() => {}}></Menu>
       </button>
-      <button className="btn" onMouseOver={() => toggleState6(true)} onMouseOut={() => toggleState6(false)} style={{backgroundColor : toggle6 ? '#f6f6f6' : 'white', width: '100%'}}>
+      <button className="btn">
         <Menu icon="bi bi-gear" label="Setelan" onClick={() => {}}></Menu>
       </button>
     </div>
@@ -111,12 +112,12 @@ function Sidebar(props){
 
 function Sidemapel(props){
     return(
-      <a href="" style={{textDecoration: 'none', color: 'black'}}>
-      <div>
+      <>
         {
           props.data?.map((item,id) =>  {
-          return(
-          <>
+            return(
+          <Link to={`/u/${item.title}`} style={{textDecoration: 'none', color: 'black'}}>
+          <div className="side">
           <div key={item.id} className="row">
             <div className="col d-flex" style={{marginTop: 12}}>
              <div className="col-3 d-flex">
@@ -126,20 +127,20 @@ function Sidemapel(props){
             </div>
           <div>
             <div className="row">
-              <span className=" d-inline-block text-truncate" style={{fontSize: 15,maxWidth: '255px', fontWeight: ''}}>{item.title}</span><br/>
+              <span className=" d-inline-block text-truncate teks" style={{fontSize: 15,maxWidth: '255px'}}>{item.title}</span><br/>
             </div>
             <div className="row">
-              <span style={{fontSize: 12}}>{item.date}</span>
+              <span className="teks" style={{fontSize: 12}}>{item.date}</span>
             </div>
             </div>
             </div>
           </div>     
-          </>
+          </div>
+          </Link>
           )
           })  
           }
-      </div>
-      </a>
+      </>
     )
   }
 

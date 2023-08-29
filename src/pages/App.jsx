@@ -4,7 +4,6 @@ import Navbar from "../components/header"
 import Nanya from "../components/footer"
 
 
-
 function App(){
   const [data,setdata] = useState([
     {
